@@ -10,8 +10,9 @@
     <div class="dashboard-page">
         <div class="page-header">
             <div class="page-title-wrap">
-                <h1>Dashboard Admin</h1>
-                <p>Ringkasan seluruh data sistem penyewaan alat camping CampRent.</p>
+                <h1>Dashboard Administrator</h1>
+                <p>Ringkasan seluruh data sistem penyewaan alat camping CampRent.</p></br>
+                <p> <i>selamat datang Administrator sistem penyewaan alat camping</i></p>
             </div>
         </div>
 
