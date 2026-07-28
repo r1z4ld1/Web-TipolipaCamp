@@ -77,7 +77,6 @@
                         mengelola data penyewaan alat camping secara rapi, cepat, dan terstruktur.
                     </p>
                     <h3>Penyewaan Alat Camping TipolipaCamp</h3>
-
                     <div class="welcome-date">
                         <i class="bi bi-calendar2-check-fill"></i>
                         {{ now()->translatedFormat('d F Y') }}
