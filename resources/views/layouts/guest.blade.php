@@ -73,15 +73,17 @@
         }
 
         .auth-brand-logo {
-            width: 64px;
-            height: 64px;
-            background: white;
-            border-radius: 20px;
-            padding: 7px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+           width: 64px;
+           height: 64px;
+           background: rgba(255, 255, 255, 0.08);
+           border: 1px solid rgba(255, 255, 255, 0.15);
+           backdrop-filter: blur(8px);
+           border-radius: 20px;
+           padding: 7px;
+           display: flex;
+           align-items: center;
+           justify-content: center;
+           box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
         }
 
         .auth-brand-logo img {
