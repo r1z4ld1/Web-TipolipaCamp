@@ -1323,7 +1323,7 @@
 
                     <div class="hero-address">
                         <span class="address-mark"></span>
-                        Jalan Miangas, Palu, Sulawesi Tengah
+                        Jl.Malonda, Tipo, kec.Ulujadi, Kota Palu, Sulawesi Tengah 94228
                     </div>
 
                     <div class="hero-actions">
@@ -1534,7 +1534,7 @@ dengan cara yang lebih mudah, rapi, dan nyaman sebelum memulai perjalanan.
     <footer class="footer">
         <div class="container footer-inner">
             <div>© {{ date('Y') }} CampRent. Camping Equipment Rental.</div>
-            <div>Jalan Miangas, Palu, Sulawesi Tengah</div>
+            <div>Jl.Malonda, Tipo, kec.Ulujadi, Kota Palu, Sulawesi Tengah 94228</div>
         </div>
     </footer>
 </body>
