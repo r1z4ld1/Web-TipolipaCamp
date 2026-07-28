@@ -164,7 +164,7 @@
                     <div class="sewa-note">
                         <i class="bi bi-info-circle-fill"></i>
                         <span>
-                            Setelah diajukan, penyewaan akan menunggu persetujuan petugas/admin.
+                            Setelah diajukan, segera melakukan pembayaran dan menunggu proses persetujuan admin.
                         </span>
                     </div>
 

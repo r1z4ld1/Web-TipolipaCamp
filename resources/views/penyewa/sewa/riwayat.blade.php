@@ -150,7 +150,7 @@
         <span class="badge badge-gray">Belum Ada Pembayaran</span>
     @endif
 
-    @if (in_array($statusBayar, ['pending', 'failed', 'expired', 'cancelled']) || is_null($statusBayar))
+    @if (($penyewaan->status !== 'ditolak') && (in_array($statusBayar, ['pending', 'failed', 'expired', 'cancelled']) || is_null($statusBayar)))
         <div style="margin-top: 6px;">
             <a href="{{ route('penyewa.pembayaran.checkout', $penyewaan) }}" class="badge badge-blue" style="text-decoration: none;">
                 <i class="bi bi-credit-card"></i> Lanjutkan Pembayaran
