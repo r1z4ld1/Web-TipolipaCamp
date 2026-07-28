@@ -120,19 +120,18 @@
     @endif
 </td>
 
-                            <td>
-                                @if ($penyewaan->bukti_identitas)
-                                    <span class="badge badge-purple">
-                                        {{ $penyewaan->bukti_identitas }}
-                                    </span>
-                                @else
-                                    <span class="badge badge-gray">
-                                        Belum Diisi
-                                    </span>
-                                @endif
-                            </td>
-
-                            <td>
+            <td>
+                     @if ($penyewaan->bukti_identitas)
+                            <span class="badge badge-purple">
+                            {{ $penyewaan->bukti_identitas }}
+                            </span>
+                    @else
+                             <span class="badge badge-gray">
+                                 Belum Diisi
+                           </span>
+                    @endif
+            </td>
+<td>
     @php
         $statusBayar = $penyewaan->pembayaranAktif->status ?? null;
     @endphp
@@ -158,7 +157,7 @@
             </a>
         </div>
     @endif
-</td
+    </td>
 
                             <td>
                                 @if ($penyewaan->status === 'pending')
