@@ -60,7 +60,7 @@
                     <div class="alat-card">
                         <div class="alat-image-wrap">
                             @if ($barang->foto)
-                                <img src="{{asset('storage/public' . $barang->foto)}}"
+                                <img src="{{ asset('storage/' . $barang->foto) }}"
                                      alt="{{ $barang->nama_barang }}"
                                      class="alat-image">
                             @else
