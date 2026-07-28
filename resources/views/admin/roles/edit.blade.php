@@ -10,7 +10,7 @@
             <div>
                 <h2 class="fw-bold mb-1">Form Edit Role</h2>
                 <p class="text-muted mb-0">
-                    Perbarui nama role dan centang permission yang boleh diakses oleh role ini.
+                    Perbarui centang permission yang boleh diakses oleh role ini.
                 </p>
             </div>
 
@@ -40,23 +40,25 @@
             @method('PUT')
 
             <div style="margin-bottom: 24px;">
-                <label for="name" style="display: block; font-weight: 700; margin-bottom: 8px;">
-                    Nama Role
-                </label>
+                
 
-                <select id="name"
-                        name="name"
-                        style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
-                    <option value="">-- Pilih Role --</option>
-                    <option value="Admin" {{ old('name', $role->name) === 'Admin' ? 'selected' : '' }}>Admin</option>
-                    <option value="Petugas" {{ old('name', $role->name) === 'Petugas' ? 'selected' : '' }}>Petugas</option>
-                    <option value="Penyewa" {{ old('name', $role->name) === 'Penyewa' ? 'selected' : '' }}>Penyewa</option>
-                    <option value="Owner" {{ old('name', $role->name) === 'Owner' ? 'selected' : '' }}>Owner</option>
-                </select>
+                <div style="margin-bottom: 24px;">
+                   <label for="name" style="display: block; font-weight: 700; margin-bottom: 8px;">
+                     Nama Role
+                   </label>
 
-                <p class="text-muted small" style="margin-top: 8px;">
-                    Role yang digunakan pada sistem hanya Admin, Petugas, Penyewa, dan Owner.
+                   <input type="text"
+                     value="{{ $role->name }}"
+                     disabled
+                     style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: #f1f5f9; color: #64748b ;">
+
+                    <input type="hidden" name="name" value="{{ $role->name }}">
+
+                   <p class="text-muted small" style="margin-top: 8px;">
+                    Role yang digunakan pada sistem hanya Admin dan Penyewa.
                 </p>
+                </div>
+
             </div>
 
             <div style="margin-bottom: 18px;">
