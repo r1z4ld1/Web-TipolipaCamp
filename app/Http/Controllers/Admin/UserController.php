@@ -13,12 +13,19 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = User::with('roles')
+        // Role yang disembunyikan sementara dari tampilan daftar user (khusus demo)
+    // Hapus salah satu nama dari array ini untuk memunculkannya lagi
+    $hiddenRoles = ['Petugas', 'Owner'];
+
+    $users = User::with('roles')
+        ->whereDoesntHave('roles', function ($query) use ($hiddenRoles) {
+            $query->whereIn('name', $hiddenRoles);
+        })
         ->latest()
         ->paginate(10)
         ->withQueryString();
 
-        return view('admin.users.index', compact('users'));
+    return view('admin.users.index', compact('users'));
     }
 
     public function create()
