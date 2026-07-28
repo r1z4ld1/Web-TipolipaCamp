@@ -7,13 +7,15 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\PermissionController;
 use App\Http\Controllers\Admin\KategoriController;
 use App\Http\Controllers\Admin\BarangController;
-use App\Http\Controllers\Admin\PenyewaanController;
-use App\Http\Controllers\Admin\PengembalianController;
 use App\Http\Controllers\Admin\LaporanController;
 use App\Http\Controllers\Admin\AktivitasController;
 use App\Http\Controllers\Penyewa\AlatController;
 use App\Http\Controllers\Penyewa\SewaController;
 use App\Http\Controllers\Penyewa\PaymentController;
+use App\Http\Controllers\Admin\PengembalianController;
+use App\Http\Controllers\Admin\PenyewaanController;
+
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -136,7 +138,7 @@ Route::middleware(['auth'])->group(function () {
         });
 
 
-    /*
+     /*
     |--------------------------------------------------------------------------
     | Penyewaan dan Pengembalian
     |--------------------------------------------------------------------------
@@ -182,6 +184,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/penyewa/pembayaran/{penyewaan}', [PaymentController::class, 'checkout'])
         ->middleware('can:sewa.create')
         ->name('penyewa.pembayaran.checkout');
+
+    Route::post('/penyewa/pembayaran/{penyewaan}/cek-status', [PaymentController::class, 'refreshStatus'])
+    ->middleware('can:sewa.create')
+    ->name('penyewa.pembayaran.cekStatus');
 });
 
 require __DIR__.'/auth.php';
