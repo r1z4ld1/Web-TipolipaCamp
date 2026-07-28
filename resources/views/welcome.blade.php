@@ -88,14 +88,16 @@
         }
 
         .brand-logo {
-            width: 60px;
-            height: 60px;
-            border-radius: 18px;
-            background: rgba(255, 255, 255, 0.96);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+          width: 60px;
+          height: 60px;
+          border-radius: 18px;
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(8px);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
         }
 
         .brand-logo img {
