@@ -12,10 +12,15 @@ class RoleController extends Controller
 {
     public function index()
     {
+        // Role yang disembunyikan sementara dari tampilan (khusus demo)
+        // Hapus salah satu nama dari array ini untuk memunculkannya lagi
+        $hiddenRoles = ['Petugas', 'Owner'];
+
         $roles = Role::withCount('permissions')
-        ->orderBy('name')
-        ->paginate(10)
-        ->withQueryString();
+            ->whereNotIn('name', $hiddenRoles)
+            ->orderBy('name')
+            ->paginate(10)
+            ->withQueryString();
 
         return view('admin.roles.index', compact('roles'));
     }
