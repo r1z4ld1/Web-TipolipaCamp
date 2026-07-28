@@ -65,6 +65,7 @@
                         <th>Lama</th>
                         <th>Total</th>
                         <th>Bukti Identitas</th>
+                       <th>Status Bayar</th>
                         <th>Status</th>
                         <th style="text-align: center;">Aksi</th>
                     </tr>
@@ -112,6 +113,20 @@
                                     </span>
                                 @endif
                             </td>
+
+                           <td>
+    @php $statusBayar = $penyewaan->pembayaranAktif->status ?? null; @endphp
+
+    @if ($statusBayar === 'paid')
+        <span class="badge badge-green">Lunas</span>
+    @elseif ($statusBayar === 'pending')
+        <span class="badge badge-gold">Menunggu Bayar</span>
+    @elseif (in_array($statusBayar, ['failed', 'expired', 'cancelled']))
+        <span class="badge badge-pink">Belum Lunas</span>
+    @else
+        <span class="badge badge-gray">Belum Ada Pembayaran</span>
+    @endif
+</td>
 
                             <td>
                                 @if ($penyewaan->status === 'pending')

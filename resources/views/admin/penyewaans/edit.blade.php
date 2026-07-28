@@ -84,6 +84,22 @@
                             @endif
                         </strong>
                     </div>
+
+                   <div>
+    <span>Status Pembayaran</span>
+    <strong>
+        @php $statusBayar = $penyewaan->pembayaranAktif->status ?? null; @endphp
+        @if ($statusBayar === 'paid')
+            <span class="badge badge-green">Lunas</span>
+        @elseif ($statusBayar === 'pending')
+            <span class="badge badge-gold">Menunggu Bayar</span>
+        @elseif (in_array($statusBayar, ['failed', 'expired', 'cancelled']))
+            <span class="badge badge-pink">Belum Lunas</span>
+        @else
+            <span class="badge badge-gray">Belum Ada Pembayaran</span>
+        @endif
+    </strong>
+</div>
                 </div>
 
                 <h3 style="margin: 22px 0 12px; color: #1f2937;">Alat yang Disewa</h3>
@@ -192,7 +208,17 @@
                             </p>
                         </div>
                     </div>
-
+    @if (($penyewaan->pembayaranAktif->status ?? null) !== 'paid')
+    <div class="status-note" style="background: #fff4e5; color: #92400e; margin-top: 12px;">
+        <i class="bi bi-exclamation-triangle-fill"></i>
+        <div>
+            <strong>Pembayaran belum tercatat lunas</strong>
+            <p style="color: #92400e;">
+                Pastikan penyewa benar-benar sudah membayar sebelum menyetujui pengajuan ini.
+            </p>
+        </div>
+    </div>
+@endif
                     <button type="submit" class="btn-primary-top" style="width: 100%; justify-content: center; margin-top: 18px;">
                         <i class="bi bi-save-fill"></i>
                         Simpan Perubahan
@@ -392,7 +418,7 @@
             }
         }
     </style>
-
+@endpush
     @push('scripts')
     <script>
         function togglePengembalianFields() {
@@ -414,5 +440,19 @@
                 statusSelect.addEventListener('change', togglePengembalianFields);
             }
         });
+       //bagian script yang ditambah baru
+        document.querySelector('form[action="{{ route('petugas.penyewaan.update', $penyewaan->id) }}"]')
+    .addEventListener('submit', function (e) {
+        const status = document.getElementById('status').value;
+        const statusBayar = '{{ $penyewaan->pembayaranAktif->status ?? "" }}';
+
+        if (status === 'disetujui' && statusBayar !== 'paid') {
+            const lanjut = confirm('Pembayaran penyewa ini belum tercatat lunas. Tetap setujui pengajuan?');
+
+            if (!lanjut) {
+                e.preventDefault();
+            }
+        }
+    });
     </script>
 @endpush
