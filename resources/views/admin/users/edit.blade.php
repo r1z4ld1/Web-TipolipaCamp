@@ -110,20 +110,19 @@
 </div>
 
             <div style="margin-bottom: 24px;">
-                <label for="role" style="display: block; font-weight: 700; margin-bottom: 8px;">
-                    Role User
-                </label>
-                <select id="role"
-                        name="role"
-                        style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
-                    <option value="">-- Pilih Role --</option>
-                    @foreach ($roles as $role)
-                        <option value="{{ $role->name }}" {{ old('role', $userRole) === $role->name ? 'selected' : '' }}>
-                            {{ $role->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+    <label for="role" style="display: block; font-weight: 700; margin-bottom: 8px;">
+        Role User
+    </label>
+
+    <input type="text"
+           value="{{ $userRole }}"
+           disabled
+           style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: #f1f5f9; color: #64748b;">
+
+    <p class="text-muted small" style="margin-top: 8px;">
+        Role user tidak dapat diubah dari form ini.
+    </p>
+</div>
 
             <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 16px; margin-bottom: 24px;">
                 <div class="fw-bold mb-1">
@@ -131,7 +130,7 @@
                     Informasi
                 </div>
                 <p class="text-muted small mb-0">
-                    Jika role user diubah, maka hak akses menu dan fitur user tersebut juga akan berubah sesuai permission dari role yang dipilih.
+                   Role user tidak dapat diubah melalui form ini untuk menjaga konsistensi hak akses. Jika perlu mengganti role user, hapus akun ini lalu buat ulang dengan role yang sesuai.
                 </p>
             </div>
 
