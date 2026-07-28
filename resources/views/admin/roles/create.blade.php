@@ -44,17 +44,17 @@
     </label>
 
     <select id="name"
-            name="name"
-            style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
-        <option value="">-- Pilih Role --</option>
-        <option value="Admin" {{ old('name') === 'Admin' ? 'selected' : '' }}>Admin</option>
-        <option value="Petugas" {{ old('name') === 'Petugas' ? 'selected' : '' }}>Petugas</option>
-        <option value="Penyewa" {{ old('name') === 'Penyewa' ? 'selected' : '' }}>Penyewa</option>
-        <option value="Owner" {{ old('name') === 'Owner' ? 'selected' : '' }}>Owner</option>
+        name="name"
+        style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
+     <option value="">-- Pilih Role --</option>
+     <option value="Admin" {{ old('name') === 'Admin' ? 'selected' : '' }}>Admin</option>
+     <!-- <option value="Petugas">Petugas</option> -->
+     <option value="Penyewa" {{ old('name') === 'Penyewa' ? 'selected' : '' }}>Penyewa</option>
+     <!-- <option value="Owner">Owner</option> -->
     </select>
 
     <p class="text-muted small" style="margin-top: 8px;">
-        Role yang digunakan pada sistem hanya Admin, Petugas, Penyewa, dan Owner.
+        Role yang digunakan pada sistem hanya Admin dan Penyewa.
     </p>
 </div>
 
