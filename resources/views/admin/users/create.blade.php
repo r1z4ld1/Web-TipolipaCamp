@@ -107,20 +107,26 @@
             </div>
 
             <div style="margin-bottom: 24px;">
-                <label for="role" style="display: block; font-weight: 700; margin-bottom: 8px;">
-                    Role User
-                </label>
-                <select id="role"
-                        name="role"
-                        style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
-                    <option value="">-- Pilih Role --</option>
-                    @foreach ($roles as $role)
-                        <option value="{{ $role->name }}" {{ old('role') === $role->name ? 'selected' : '' }}>
-                            {{ $role->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </div>
+    <label for="role" style="display: block; font-weight: 700; margin-bottom: 8px;">
+        Role User
+    </label>
+    <select id="role"
+            name="role"
+            style="width: 100%; padding: 13px 15px; border: 1px solid #cbd5e1; border-radius: 14px; outline: none; background: white;">
+        <option value="">-- Pilih Role --</option>
+        @php
+            // Role yang disembunyikan sementara — hapus dari array ini untuk memunculkan lagi
+            $hiddenRoles = ['Petugas', 'Owner'];
+        @endphp
+        @foreach ($roles as $role)
+            @if (!in_array($role->name, $hiddenRoles))
+                <option value="{{ $role->name }}" {{ old('role') === $role->name ? 'selected' : '' }}>
+                    {{ $role->name }}
+                </option>
+            @endif
+        @endforeach
+    </select>
+</div>
 
             <div class="d-flex align-items-center gap-3">
                 <button type="submit" class="btn-navy">
