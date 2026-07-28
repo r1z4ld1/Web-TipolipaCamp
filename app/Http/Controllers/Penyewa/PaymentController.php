@@ -24,6 +24,12 @@ class PaymentController extends Controller
     {
         abort_if($penyewaan->user_id !== auth()->id(), 403);
 
+         if ($penyewaan->status === 'ditolak') {
+        return redirect()
+            ->route('penyewa.sewa.riwayat')
+            ->with('error', 'Pengajuan sewa ini sudah ditolak admin/petugas dan tidak dapat dibayar.');
+    }
+
         $penyewaan->load('details.barang');
 
         $pembayaran = $penyewaan->pembayaranAktif;
@@ -42,7 +48,7 @@ class PaymentController extends Controller
          return [
                 'id' => 'BRG-' . $detail->barang_id,
                 'price' => (int) $detail->subtotal,
-                'quantity' => 1,
+                'quantity' => (int) $detail->jumlah,
                 'name' => Str::limit($detail->barang->nama_barang ?? 'Alat Camping', 50),
               ];
                 })->toArray();
