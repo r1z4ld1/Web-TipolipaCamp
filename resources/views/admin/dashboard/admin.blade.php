@@ -12,7 +12,6 @@
             <div class="page-title-wrap">
                 <h1>Dashboard Administrator</h1>
                 <p>Ringkasan seluruh data sistem penyewaan alat camping CampRent.</p></br>
-                <p> <i>selamat datang Administrator sistem penyewaan alat camping</i></p>
             </div>
         </div>
 
@@ -77,7 +76,6 @@
                         Anda login sebagai <strong>{{ $roleName }}</strong>. Gunakan dashboard ini untuk
                         mengelola data penyewaan alat camping secara rapi, cepat, dan terstruktur.
                     </p>
-                    <h3>Penyewaan Alat Camping TipolipaCamp</h3>
                     <div class="welcome-date">
                         <i class="bi bi-calendar2-check-fill"></i>
                         {{ now()->translatedFormat('d F Y') }}
