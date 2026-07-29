@@ -1419,10 +1419,10 @@
     <section class="section">
         <div class="container">
             <div class="section-title">
-                <div class="section-label">Layanan CampRent</div>
+                <div class="section-label">Layanan TipoLipaCamp</div>
                 <h2>Semua kebutuhan camping tersedia dalam satu tempat.</h2>
                 <p>
-                    CampRent hadir untuk membantu kamu mendapatkan perlengkapan camping
+                    TipoLipaCamp hadir untuk membantu kamu mendapatkan perlengkapan camping
 dengan cara yang lebih mudah, rapi, dan nyaman sebelum memulai perjalanan.
                 </p>
             </div>
@@ -1513,7 +1513,7 @@ dengan cara yang lebih mudah, rapi, dan nyaman sebelum memulai perjalanan.
                 <div>
                     <h2>Siap menyewa alat camping untuk perjalananmu?</h2>
                     <p>
-                        Buat akun penyewa CampRent untuk melihat alat camping yang tersedia,
+                        Buat akun penyewa TipoLipaCamp untuk melihat alat camping yang tersedia,
                         mengajukan sewa, dan memantau status penyewaan dengan mudah.
                     </p>
                 </div>
@@ -1535,7 +1535,7 @@ dengan cara yang lebih mudah, rapi, dan nyaman sebelum memulai perjalanan.
 
     <footer class="footer">
         <div class="container footer-inner">
-            <div>© {{ date('Y') }} CampRent. Camping Equipment Rental.</div>
+            <div>© {{ date('Y') }} TipolipaCamp. Camping Equipment Rental.</div>
             <div>Jl.Malonda, Tipo, kec.Ulujadi, Kota Palu, Sulawesi Tengah 94228</div>
         </div>
     </footer>
