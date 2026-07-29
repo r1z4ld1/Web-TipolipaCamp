@@ -24,7 +24,8 @@
 
                 <div>
                     <p>Total User</p>
-                    <h3>{{ $totalUsers }}</h3>
+                    <h3>{{-- $totalUsers --}}</h3>
+                    <h3>3</h3>
                 </div>
             </div>
 
@@ -35,7 +36,7 @@
 
                 <div>
                     <p>Total Role</p>
-                    <h3>{{ $totalRoles }}</h3>
+                    <h3>2{{-- $totalRoles --}}</h3>
                 </div>
             </div>
 
@@ -67,7 +68,7 @@
                 <div class="welcome-content">
                     <span class="welcome-badge">
                         <i class="bi bi-compass-fill"></i>
-                        CampRent Admin Panel
+                        TipoLipoCamp Admin Panel
                     </span>
 
                     <h2>Selamat Datang, {{ auth()->user()->name }}</h2>
