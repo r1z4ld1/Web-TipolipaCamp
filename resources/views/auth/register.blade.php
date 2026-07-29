@@ -3,7 +3,7 @@
         <img src="{{ asset('assets/images/logo-camprent.png') }}" alt="CampRent Logo">
     </div>
 
-    <h2>Daftar Akun CampRent</h2>
+    <h2>Daftar Akun TipoLipaCamp</h2>
 
     <p class="auth-card-description">
         Buat akun baru untuk menggunakan layanan penyewaan alat camping.
