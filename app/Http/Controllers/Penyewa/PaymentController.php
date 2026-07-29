@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Midtrans\Config as MidtransConfig;
 use Midtrans\Snap;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class PaymentController extends Controller
 {
@@ -114,4 +115,32 @@ class PaymentController extends Controller
 
         return response()->json(['message' => 'OK']);
     }
+
+    public function bukti(Penyewaan $penyewaan)
+{
+    abort_if($penyewaan->user_id !== auth()->id(), 403);
+
+    $penyewaan->load('details.barang', 'pembayaranAktif');
+
+    abort_if(($penyewaan->pembayaranAktif->status ?? null) !== 'paid', 404);
+
+    $pembayaran = $penyewaan->pembayaranAktif;
+
+    return view('penyewa.pembayaran.bukti', compact('penyewaan', 'pembayaran'));
+}
+
+public function buktiPdf(Penyewaan $penyewaan)
+{
+    abort_if($penyewaan->user_id !== auth()->id(), 403);
+
+    $penyewaan->load('details.barang', 'pembayaranAktif');
+
+    abort_if(($penyewaan->pembayaranAktif->status ?? null) !== 'paid', 404);
+
+    $pembayaran = $penyewaan->pembayaranAktif;
+
+    $pdf = Pdf::loadView('penyewa.pembayaran.bukti-pdf', compact('penyewaan', 'pembayaran'));
+
+    return $pdf->download('bukti-transaksi-' . $penyewaan->kode_penyewaan . '.pdf');
+}
 }
