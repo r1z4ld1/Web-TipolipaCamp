@@ -188,6 +188,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/penyewa/pembayaran/{penyewaan}/cek-status', [PaymentController::class, 'refreshStatus'])
     ->middleware('can:sewa.create')
     ->name('penyewa.pembayaran.cekStatus');
+
+    Route::get('/penyewa/pembayaran/{penyewaan}/bukti', [PaymentController::class, 'bukti'])
+    ->middleware('can:sewa.create')
+    ->name('penyewa.pembayaran.bukti');
+
+Route::get('/penyewa/pembayaran/{penyewaan}/bukti/pdf', [PaymentController::class, 'buktiPdf'])
+    ->middleware('can:sewa.create')
+    ->name('penyewa.pembayaran.buktiPdf');
 });
 
 require __DIR__.'/auth.php';
