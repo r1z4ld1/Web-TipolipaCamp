@@ -434,7 +434,7 @@
                 </div>
 
                 <div>
-                    <div class="auth-brand-title">CampRent</div>
+                    <div class="auth-brand-title">TipoLipaCamp</div>
                     <div class="auth-brand-subtitle">Camping Equipment Rental</div>
                 </div>
             </div>
@@ -448,7 +448,7 @@
                 <h1>Temukan perlengkapan camping terbaik untuk petualanganmu.</h1>
 
                 <p>
-                    CampRent menyediakan berbagai alat camping yang siap disewa untuk kebutuhan liburan,
+                    TipoLipaCamp menyediakan berbagai alat camping yang siap disewa untuk kebutuhan liburan,
                     pendakian, kegiatan alam, dan perjalanan outdoor bersama teman maupun keluarga.
                 </p>
 
@@ -474,7 +474,7 @@
             </div>
 
             <div class="auth-footer-text">
-                &copy; {{ date('Y') }} CampRent. Make your adventure fun.
+                &copy; {{ date('Y') }} TipoLipaCamp. Make your adventure fun.
             </div>
         </section>
 
