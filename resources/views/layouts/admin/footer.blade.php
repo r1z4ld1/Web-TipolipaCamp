@@ -1,3 +1,3 @@
 <footer class="admin-footer">
-    &copy; {{ date('Y') }} CampRent
+    &copy; {{ date('Y') }} TipoLipaCamp
 </footer>
