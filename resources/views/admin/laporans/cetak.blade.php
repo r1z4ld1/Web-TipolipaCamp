@@ -118,7 +118,7 @@
 
     <div class="header">
         <h1>Laporan Penyewaan Alat Camping</h1>
-        <p>CampRent - Sistem Penyewaan Alat Camping</p>
+        <p>TipolipaCamp - Sistem Penyewaan Alat Camping</p>
     </div>
 
     <div class="info">

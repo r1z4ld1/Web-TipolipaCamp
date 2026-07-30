@@ -110,28 +110,47 @@
         </div>
     @endif
 
-    <div class="laporan-summary-grid">
-        <div class="laporan-summary-card">
-            <div class="small text-muted fw-bold mb-1">Total Sewa</div>
+   <div class="row g-4 mb-4">
+    <!-- Card 1 -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="laporan-summary-card card h-100 border-0 shadow-sm p-3">
+            <div class="small text-muted fw-bold mb-1">Total Sewa (Lunas)</div>
             <h3 class="fw-bold mb-0 laporan-total-sewa">
                 Rp {{ number_format($totalSewa ?? 0, 0, ',', '.') }}
             </h3>
         </div>
+    </div>
 
-        <div class="laporan-summary-card">
+    <!-- Card 2 -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="laporan-summary-card card h-100 border-0 shadow-sm p-3">
             <div class="small text-muted fw-bold mb-1">Total Denda</div>
             <h3 class="fw-bold mb-0 laporan-total-denda">
                 Rp {{ number_format($totalDenda ?? 0, 0, ',', '.') }}
             </h3>
         </div>
+    </div>
 
-        <div class="laporan-summary-card">
+    <!-- Card 3 -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="laporan-summary-card card h-100 border-0 shadow-sm p-3">
             <div class="small text-muted fw-bold mb-1">Total Pendapatan</div>
             <h3 class="fw-bold mb-0 laporan-total-pendapatan">
                 Rp {{ number_format($totalPendapatan ?? 0, 0, ',', '.') }}
             </h3>
         </div>
     </div>
+
+    <!-- Card 4 -->
+    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+        <div class="laporan-summary-card card h-100 border-0 shadow-sm p-3">
+            <div class="small text-muted fw-bold mb-1">Menunggu Dibayar</div>
+            <h3 class="fw-bold mb-0">
+                Rp {{ number_format($totalMenungguBayar ?? 0, 0, ',', '.') }}
+            </h3>
+        </div>
+    </div>
+</div>
 
     <div class="content-card">
         <div class="table-wrap">
@@ -143,6 +162,7 @@
                         <th>Alat Camping</th>
                         <th>Tanggal</th>
                         <th>Total</th>
+                        <th>Status Bayar</th>
                         <th>Bukti Identitas</th>
                         <th>Status</th>
                     </tr>
@@ -228,6 +248,18 @@
                                     Total Bayar Rp {{ number_format(($penyewaan->total_harga + ($penyewaan->total_denda ?? 0)), 0, ',', '.') }}
                                 </div>
                             </td>
+                            <td>
+    @php $statusBayar = $penyewaan->pembayaranAktif->status ?? null; @endphp
+    @if ($statusBayar === 'paid')
+        <span class="badge badge-green">Lunas</span>
+    @elseif ($statusBayar === 'pending')
+        <span class="badge badge-gold">Menunggu Bayar</span>
+    @elseif (in_array($statusBayar, ['failed', 'expired', 'cancelled']))
+        <span class="badge badge-pink">Belum Lunas</span>
+    @else
+        <span class="badge badge-gray">Belum Ada Pembayaran</span>
+    @endif
+</td>
 
                             <td>
                                 @if ($penyewaan->bukti_identitas)
@@ -267,7 +299,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" style="padding: 36px; text-align: center; color: #64748b;">
+                            <td colspan="8" style="padding: 36px; text-align: center; color: #64748b;">
                                 Belum ada data laporan.
                             </td>
                         </tr>

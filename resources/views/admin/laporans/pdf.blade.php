@@ -140,6 +140,7 @@ sampai
                 <th>Alat Camping</th>
                 <th>Tanggal</th>
                 <th>Total</th>
+                <th>Status Bayar</th>
                 <th>Identitas</th>
                 <th>Status</th>
             </tr>
@@ -197,6 +198,11 @@ sampai
                             Total Bayar:
                             Rp {{ number_format(($penyewaan->total_harga + ($penyewaan->total_denda ?? 0)), 0, ',', '.') }}
                         </strong>
+                    </td>
+
+                    <td>
+                        @php $statusBayar = $penyewaan->pembayaranAktif->status ?? null; @endphp
+                        {{ $statusBayar === 'paid' ? 'Lunas' : ($statusBayar === 'pending' ? 'Menunggu Bayar' : 'Belum Lunas') }}
                     </td>
 
                     <td>
