@@ -138,6 +138,11 @@
 
     @if ($statusBayar === 'paid')
         <span class="badge badge-green">Lunas</span>
+        <div style="margin-top: 6px;">
+            <a href="{{ route('penyewa.pembayaran.bukti', $penyewaan) }}" class="badge badge-blue" style="text-decoration: none;">
+                <i class="bi bi-receipt"></i> Lihat Bukti
+            </a>
+        </div>
     @elseif ($statusBayar === 'failed')
         <span class="badge badge-pink">Gagal</span>
     @elseif ($statusBayar === 'expired')
@@ -157,7 +162,7 @@
             </a>
         </div>
     @endif
-    </td>
+</td>
 
                             <td>
                                 @if ($penyewaan->status === 'pending')
