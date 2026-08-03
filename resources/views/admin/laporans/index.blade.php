@@ -164,7 +164,7 @@
                         <th>Total</th>
                         <th>Status Bayar</th>
                         <th>Bukti Identitas</th>
-                        <th>Status</th>
+                        <th>Status Sewa</th>
                     </tr>
                 </thead>
 

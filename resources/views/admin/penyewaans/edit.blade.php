@@ -189,13 +189,13 @@
         </select>
     </div>
 
-    <div class="form-group-modern">
+   {{-- <div class="form-group-modern">
         <label for="catatan_pengembalian">Catatan Pengembalian</label>
         <textarea id="catatan_pengembalian"
                   name="catatan_pengembalian"
                   rows="4"
                   placeholder="Contoh: Barang kembali tepat waktu dan kondisi baik.">{{ old('catatan_pengembalian', $penyewaan->catatan_pengembalian) }}</textarea>
-    </div>
+    </div>--}}
 </div>
 
                     <div class="status-note">

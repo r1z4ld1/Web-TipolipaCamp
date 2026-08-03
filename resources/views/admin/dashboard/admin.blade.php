@@ -24,7 +24,7 @@
                 <div>
                     <p>Total User</p>
                     <h3>{{-- $totalUsers --}}</h3>
-                    <h3>4</h3>
+                    <h3>5</h3>
                 </div>
             </div>
 

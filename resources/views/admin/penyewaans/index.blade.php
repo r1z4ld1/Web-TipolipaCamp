@@ -66,7 +66,7 @@
                         <th>Total</th>
                         <th>Bukti Identitas</th>
                        <th>Status Bayar</th>
-                        <th>Status</th>
+                        <th>Status Sewa</th>
                         <th style="text-align: center;">Aksi</th>
                     </tr>
                 </thead>

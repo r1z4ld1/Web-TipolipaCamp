@@ -43,8 +43,9 @@
                         <th>Lama</th>
                         <th>Total</th>
                         <th>Bukti Identitas</th>
+                        <th>Catatan</th>
                         <th>Status Bayar</th>
-                        <th>Status</th>
+                        <th>Status Sewa</th>
                     </tr>
                 </thead>
 
@@ -131,7 +132,20 @@
                            </span>
                     @endif
             </td>
+             <td>
+        @if ($penyewaan->catatan)
+                                    <span class="badge badge-blue">
+                                        {{ $penyewaan->catatan }}
+                                    </span>
+                                @else
+                                    <span class="badge badge-gray">
+                                        Tidak Ada Catatan
+                                    </span>
+                                @endif
+    </td>
 <td>
+
+
     @php
         $statusBayar = $penyewaan->pembayaranAktif->status ?? null;
     @endphp

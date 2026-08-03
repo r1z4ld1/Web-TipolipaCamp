@@ -3,6 +3,7 @@
 @section('title', 'Daftar Alat')
 
 @section('content')
+
     <div class="page-header">
     <div class="page-title-wrap">
         <h1>Daftar Alat Camping</h1>
@@ -101,7 +102,6 @@
                                 @else
                                     <span class="badge badge-pink">Rusak Berat</span>
                                 @endif
-
                                 <a href="{{ route('penyewa.sewa.create', $barang->id) }}"
                                 class="btn-sewa-disabled">
                                     <i class="bi bi-cart-plus-fill"></i>
